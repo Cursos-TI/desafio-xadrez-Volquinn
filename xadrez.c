@@ -26,7 +26,7 @@ printf("\n");
     while (contadorBispo < movimentoBispo)
     {
         printf("Cima Direita\n");
-         contadorBispo ++;
+         ++contadorBispo;
     }
     
 printf("\n");
@@ -42,10 +42,36 @@ printf("\n");
     do
     {
        printf("Esquerda\n");
-        contadorRainha ++;
+        ++contadorRainha;
 
     } while (contadorRainha < movimentoRainha);
     
+    printf("\n");
+
+//Simulacao do Cavalo(2 casas baixo e 1 esquerda)
+
+    int movBaixo = 2;
+    int movEsquerda =1;
+
+        printf("Movimento do Cavalo:\n");
+    
+    for (int i = 0; i <movBaixo; i++){
+       
+        printf("Baixo\n");
+
+    if (i == movBaixo -1){
+        int j = 0;
+    while (j < movEsquerda)
+    {
+        printf("Esquerda\n");
+        ++j;
+    }
+    
+ }
+
+}
+    
+
 return 0;
 
 }

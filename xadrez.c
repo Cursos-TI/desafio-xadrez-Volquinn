@@ -1,77 +1,74 @@
 #include <stdio.h>
 
-int main() {
-    // Simulacao da torre(5 casas para a direita)
+// Simulação Torre (5 casas para Direita)
 
-    int movimentoTorre = 5;
-
-
-        printf("Movimento da Torre: \n");
-
-    for (int i = 1; i <= movimentoTorre; i++) {
+void moverTorre(int casas) {
+    if (casas > 0) {
         printf("Direita\n");
+        moverTorre(casas - 1);
+    }
+}
 
-    }   
+// Simulação Bispo (5 casas na Diagonal Cima Direita)
 
-printf("\n");
+void moverBispo(int movimentos) {
+    if (movimentos > 0) {
+        printf("Cima Direita\n");
+        moverBispo(movimentos - 1);
+    }
+}
 
+// Simulação Rainha (8 casas para Esquerda)
 
-// Simulacao do bispo(5 casas na diagonal cima Direita)
+void moverRainha(int casas) {
+    if (casas > 0) {
+        printf("Esquerda\n");
+        moverRainha(casas - 1);
+    }
+}
 
+// Simulação Cavalo (2 Cima + 1 Direita)
+
+void moverCavalo() {
+    int movCima = 2;
+    int movDireita = 1;
+
+    for (int i = 0; i < movCima; ++i) {
+        for (int j = 0; j <= movDireita; ++j) {
+            if (i == movCima - 1 && j == movDireita) {
+                printf("Cima\n");
+                printf("Cima\n");
+                printf("Direita\n");
+                continue;
+            }
+            if (i + j > 3) break;
+        }
+    }
+}
+
+int main() {
+    int movimentoTorre = 5;
     int movimentoBispo = 5;
-    int contadorBispo =0;
+    int movimentoRainha = 8;
+
+        printf("Movimento da Torre:\n");
+        moverTorre(movimentoTorre);
+        printf("\n");
 
         printf("Movimento do Bispo:\n");
-
-    while (contadorBispo < movimentoBispo)
-    {
-        printf("Cima Direita\n");
-         ++contadorBispo;
-    }
-    
-printf("\n");
-
-
-// Simulacao da Rainha(8 casas para a esquerda
-
-    int movimentoRainha = 8;
-    int contadorRainha = 0;
+        moverBispo(movimentoBispo);  
+        printf("\n");
 
         printf("Movimento da Rainha:\n");
-
-    do
-    {
-       printf("Esquerda\n");
-        ++contadorRainha;
-
-    } while (contadorRainha < movimentoRainha);
-    
-    printf("\n");
-
-//Simulacao do Cavalo(2 casas baixo e 1 esquerda)
-
-    int movBaixo = 2;
-    int movEsquerda =1;
+        moverRainha(movimentoRainha);
+        printf("\n");
 
         printf("Movimento do Cavalo:\n");
-    
-    for (int i = 0; i <movBaixo; i++){
-       
-        printf("Baixo\n");
+        moverCavalo();
+        printf("\n");
 
-    if (i == movBaixo -1){
-        int j = 0;
-    while (j < movEsquerda)
-    {
-        printf("Esquerda\n");
-        ++j;
-    }
-    
- }
-
-}
-    
 
 return 0;
+
 
 }
